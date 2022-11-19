@@ -1,0 +1,3 @@
+[submodule "BioConnect"]
+	path = BioConnect
+	url = https://github.com/Creative-AGH/BioConnect.git
