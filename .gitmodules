@@ -1,3 +1,6 @@
 [submodule "BioConnect"]
 	path = BioConnect
 	url = https://github.com/Creative-AGH/BioConnect.git
+[submodule "bioconnect_client"]
+	path = bioconnect_client
+	url = https://github.com/Creative-AGH/bioconnect_client
