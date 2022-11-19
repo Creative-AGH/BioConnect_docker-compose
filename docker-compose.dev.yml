@@ -2,11 +2,15 @@ services:
   frontend:
     build:
       context: ./bioconnect_client
+      dockerfile: ./Dockerfile.dev
       args:
         - REACT_APP_BACKEND_URL=/backend
-        - NODE_ENV=production
+        - NODE_ENV=development
     ports:
       - 80:3000
+    volumes:
+      - ./bioconnect_client/src:/usr/src/app/src
+
   backend:
     build:
       context: ./BioConnect
@@ -25,6 +29,7 @@ services:
       - '3306'
     volumes:
       - mysql_data:/var/lib/mysql
-
+      
 volumes:
   mysql_data:
+  bioconnect_client:
