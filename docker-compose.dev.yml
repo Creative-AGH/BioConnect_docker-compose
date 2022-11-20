@@ -4,8 +4,10 @@ services:
       context: ./bioconnect_client
       dockerfile: ./Dockerfile.dev
       args:
-        - REACT_APP_BACKEND_URL=/backend
+        - REACT_APP_BACKEND_URL=backend
         - NODE_ENV=development
+        - REACT_APP_API_URL=https://random-data-api.com/api/v2/
+        - REACT_APP_MAPBOX_TOKEN=pk.eyJ1Ijoiam9obnF3ZXJ0eSIsImEiOiJjbGFtYzIyc2kwZWlqM3JvYjNnZXkyczhjIn0.H6l2mPlL4J8zKYMhgtiCRg
     ports:
       - 80:3000
     volumes:
@@ -21,7 +23,7 @@ services:
       - '8080'
 
   mysql_db:
-    image: mysql:5.7
+    image: mysql:latest
     restart: always
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
