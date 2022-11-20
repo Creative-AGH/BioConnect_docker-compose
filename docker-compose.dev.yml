@@ -9,9 +9,19 @@ services:
         - REACT_APP_API_URL=https://random-data-api.com/api/v2/
         - REACT_APP_MAPBOX_TOKEN=pk.eyJ1Ijoiam9obnF3ZXJ0eSIsImEiOiJjbGFtYzIyc2kwZWlqM3JvYjNnZXkyczhjIn0.H6l2mPlL4J8zKYMhgtiCRg
     ports:
-      - 80:3000
+      - 3000:3000
     volumes:
       - ./bioconnect_client/src:/usr/src/app/src
+  nginx:
+    build:
+      context: ./nginx
+    depends_on:
+      - backend
+      - frontend
+    ports:
+        - 80:80
+        - 443:443 
+    restart: always
 
   backend:
     build:
